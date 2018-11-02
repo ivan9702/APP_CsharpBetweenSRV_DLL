@@ -133,7 +133,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             rtn = api.FP_DestroyCaptureHandle(m_hConnect, m_hFPCapture);
             rtn = api.FP_DestroyImageHandle(m_hConnect, m_hFPImage);
 
-            return 0;
+            return variable.OK;
         }
         public int Verify(bool save_img, PictureBox pb, RichTextBox status, RichTextBox log)
         {
@@ -146,7 +146,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             ui.AddLog(log, "FP_GetEncryptedTemplate = " + rtn.ToString());
 
-            return variable.FAIL;
+            return variable.OK;
         }
 
         public int Identify(bool save_img, PictureBox pb, RichTextBox status, RichTextBox log)
@@ -159,7 +159,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             ui.AddLog(log, "FP_GetEncryptedTemplate = " + rtn.ToString());
 
-            return variable.FAIL;
+            return variable.OK;
         }
 
         public int Delete(bool save_img, PictureBox pb, RichTextBox status, RichTextBox log, string User_Id, int fp_idx)
@@ -175,9 +175,9 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             rtn = api.FP_GetDeleteData(m_hConnect, ref UserId[0], fp_idx, ref EncryptedDeleteData[0], ref pEncryptedLen[0]);
 
-            ui.AddLog(log, "FP_GetEncryptedTemplate = " + rtn.ToString());
+            ui.AddLog(log, "FP_GetDeleteData = " + rtn.ToString());
 
-            return variable.FAIL;
+            return variable.OK;
         }
 
     }
