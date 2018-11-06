@@ -23,5 +23,14 @@ namespace Demo_CsharpBetweenSrvAndDll
         public static byte GRAY_IMAGE = 8;
 
         public static string[] running_symble = { " .", " ..", " ...", " ...." };
+
+        public static int mode = 1, key = 0;  //mode : 1 ISO ;2 :M1-378
+        public static String ist_filename = "enroll.ist";
+
+        public static int superc_width = 256;
+        public static int superc_height = 360;
+
+        public static int fm220_width = 264;
+        public static int fm220_height = 324;
     }
 }

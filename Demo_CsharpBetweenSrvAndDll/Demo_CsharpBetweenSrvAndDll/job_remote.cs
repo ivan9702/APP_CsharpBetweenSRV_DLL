@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace Demo_CsharpBetweenSrvAndDll
 {
-    class job
+    class job_remote
     {
         public BackgroundWorker BGW_Enroll = new BackgroundWorker();
         public void Job_Enroll(List<object> arguments)
         {
-            BGW_Enroll = new BackgroundWorker();
             BGW_Enroll.DoWork += new DoWorkEventHandler(BGW_Enroll_DoWork);
             BGW_Enroll.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BGW_Enroll_Completed);
             BGW_Enroll.ProgressChanged += new ProgressChangedEventHandler(BGW_Enroll_ProgressChanged);
@@ -46,7 +45,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             //ask API.dll to provide finger data
             fp_operation fp = new fp_operation();
             fp.DeviceConnect(rtb_log);
-            fp.Enroll(save_img, pb, rtb_status, rtb_log);
+            fp.Get_EnrollEx_Encrypted(save_img, pb, rtb_status, rtb_log);
             fp.DeviceDisconnect(rtb_log);
 
             string id = ui.ReadText(rtb_id);
@@ -55,6 +54,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             int privilege;
             int.TryParse(ui.ReadText(rtb_privilege), out privilege);
+
 
             //feed finger data to to remote "redirect server"
             srv_operation srv = new srv_operation();
@@ -71,6 +71,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             ui.AddLog(rtb_log, "Send server = " + json_str);
             ui.AddLog(rtb_log, "server return = " + srv_rtn);
+
             ui.ShowStatus(rtb_status, "Enroll finished");
 
         }
@@ -88,7 +89,6 @@ namespace Demo_CsharpBetweenSrvAndDll
         public BackgroundWorker BGW_Verify = new BackgroundWorker();
         public void Job_Verify(List<object> arguments)
         {
-            BGW_Verify = new BackgroundWorker();
             BGW_Verify.DoWork += new DoWorkEventHandler(BGW_Verify_DoWork);
             BGW_Verify.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BGW_Verify_Completed);
             BGW_Verify.ProgressChanged += new ProgressChangedEventHandler(BGW_Verify_ProgressChanged);
@@ -119,7 +119,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             //ask API.dll to provide finger data
             fp_operation fp = new fp_operation();
             fp.DeviceConnect(rtb_log);
-            fp.Verify(save_img, pb, rtb_status, rtb_log);
+            fp.GetEncryptedTemplate(save_img, pb, rtb_status, rtb_log);
             fp.DeviceDisconnect(rtb_log);
 
             string id = ui.ReadText(rtb_id);
@@ -144,6 +144,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             ui.AddLog(rtb_log, "Send server = " + json_str);
             ui.AddLog(rtb_log, "server return = " + srv_rtn);
+
             ui.ShowStatus(rtb_status, "Verify finished");
         }
 
@@ -160,7 +161,6 @@ namespace Demo_CsharpBetweenSrvAndDll
         public BackgroundWorker BGW_Identify = new BackgroundWorker();
         public void Job_Identify(List<object> arguments)
         {
-            BGW_Identify = new BackgroundWorker();
             BGW_Identify.DoWork += new DoWorkEventHandler(BGW_Identify_DoWork);
             BGW_Identify.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BGW_Identify_Completed);
             BGW_Identify.ProgressChanged += new ProgressChangedEventHandler(BGW_Identify_ProgressChanged);
@@ -191,7 +191,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             //ask API.dll to provide finger data
             fp_operation fp = new fp_operation();
             fp.DeviceConnect(rtb_log);
-            fp.Identify(save_img, pb, rtb_status, rtb_log);
+            fp.GetEncryptedTemplate(save_img, pb, rtb_status, rtb_log);
             fp.DeviceDisconnect(rtb_log);
 
             string id = ui.ReadText(rtb_id);
@@ -216,6 +216,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             ui.AddLog(rtb_log, "Send server = " + json_str);
             ui.AddLog(rtb_log, "Server return = " + srv_rtn);
+
             ui.ShowStatus(rtb_status, "Identify finished");
         }
 
@@ -232,7 +233,6 @@ namespace Demo_CsharpBetweenSrvAndDll
         public BackgroundWorker BGW_Delete = new BackgroundWorker();
         public void Job_Delete(List<object> arguments)
         {
-            BGW_Delete = new BackgroundWorker();
             BGW_Delete.DoWork += new DoWorkEventHandler(BGW_Delete_DoWork);
             BGW_Delete.RunWorkerCompleted += new RunWorkerCompletedEventHandler(BGW_Delete_Completed);
             BGW_Delete.ProgressChanged += new ProgressChangedEventHandler(BGW_Delete_ProgressChanged);
@@ -267,7 +267,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             //ask API.dll to provide finger data
             fp_operation fp = new fp_operation();
             fp.DeviceConnect(rtb_log);
-            fp.Delete(save_img, pb, rtb_status, rtb_log, id, fp_idx);
+            fp.GetDeleteData(save_img, pb, rtb_status, rtb_log, id, fp_idx);
             fp.DeviceDisconnect(rtb_log);
 
             int privilege;
@@ -286,6 +286,7 @@ namespace Demo_CsharpBetweenSrvAndDll
 
             ui.AddLog(rtb_log, "Send server = " + json_str);
             ui.AddLog(rtb_log, "server return = " + srv_rtn);
+
             ui.ShowStatus(rtb_status, "Delete finished");
         }
 

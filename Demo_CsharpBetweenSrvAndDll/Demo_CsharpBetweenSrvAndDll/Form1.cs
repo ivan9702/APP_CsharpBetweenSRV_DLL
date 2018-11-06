@@ -102,7 +102,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             arguments.Add(this.richTextBox_serverip);//8
             arguments.Add(this.richTextBox_port);   //9
 
-            job jobs = new job();
+            job_remote jobs = new job_remote();
             jobs.Job_Enroll(arguments);
         }
 
@@ -121,7 +121,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             arguments.Add(this.richTextBox_serverip);//8
             arguments.Add(this.richTextBox_port);   //9
 
-            job jobs = new job();
+            job_remote jobs = new job_remote();
             jobs.Job_Identify(arguments);
         }
 
@@ -140,7 +140,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             arguments.Add(this.richTextBox_serverip);//8
             arguments.Add(this.richTextBox_port);   //9
 
-            job jobs = new job();
+            job_remote jobs = new job_remote();
             jobs.Job_Verify(arguments);
         }
 
@@ -159,7 +159,7 @@ namespace Demo_CsharpBetweenSrvAndDll
             arguments.Add(this.richTextBox_serverip);//8
             arguments.Add(this.richTextBox_port);   //9
 
-            job jobs = new job();
+            job_remote jobs = new job_remote();
             jobs.Job_Delete(arguments);
 
         }

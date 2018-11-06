@@ -44,4 +44,12 @@
 
     Declare Function _FP_SetLowSpeed Lib "fm220api.dll" Alias "FP_SetLowSpeed" () As Integer
 
+    '20101103 add
+    Declare Function _FP_SaveISOminutia Lib "fm220api.dll" Alias "FP_SaveISOminutia" (ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+    Declare Function _FP_SaveM1minutia Lib "fm220api.dll" Alias "FP_SaveM1minutia" (ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+    Declare Function _FP_LoadISOminutia Lib "fm220api.dll" Alias "FP_LoadISOminutia" (ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+    Declare Function _FP_LoadM1minutia Lib "fm220api.dll" Alias "FP_LoadM1minutia" (ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+
+    Declare Function _FP_ConvertImageToTemplate Lib "fm220api.dll" Alias "FP_ConvertImageToTemplate" (ByVal hConnect As Integer, ByRef bRawData As Byte, ByVal nWidth As Integer, ByVal nHeight As Integer, ByRef minu_code As Byte, ByVal mode As Integer, ByVal key As Integer) As Integer
+
 End Module

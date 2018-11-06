@@ -112,5 +112,26 @@ Public Class fm220api
         Return _FP_SetLowSpeed()
     End Function
 
+    '20101103 add
+    Function FP_SaveISOminutia(ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+        Return _FP_SaveISOminutia(hConnect, Filename, minu_code)
+    End Function
+    Function FP_SaveM1minutia(ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+        Return _FP_SaveM1minutia(hConnect, Filename, minu_code)
+    End Function
+    '    Function FP_GetTemplate_KID(ByVal hConnect As Integer, ByRef minu_code As Byte, ByVal mode As Integer, ByVal reserved As Integer, ByVal scale_lv As Integer) As Integer
+    '    Return _FP_GetTemplate_KID(hConnect, minu_code, mode, reserved, scale_lv)
+    'End Function
+    Function FP_LoadISOminutia(ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+        Return _FP_LoadISOminutia(hConnect, Filename, minu_code)
+    End Function
+    Function FP_LoadM1minutia(ByVal hConnect As Integer, ByRef Filename As Byte, ByRef minu_code As Byte) As Integer
+        Return _FP_LoadM1minutia(hConnect, Filename, minu_code)
+    End Function
+    Function FP_ConvertImageToTemplate(ByVal hConnect As Integer, ByRef bRawData As Byte, ByVal nWidth As Integer, ByVal nHeight As Integer, ByRef minu_code As Byte, ByVal mode As Integer, ByVal key As Integer) As Integer
+        Return _FP_ConvertImageToTemplate(hConnect, bRawData, nWidth, nHeight, minu_code, mode, key)
+    End Function
+
+
 End Class
 

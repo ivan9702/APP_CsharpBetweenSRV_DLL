@@ -255,7 +255,7 @@
             this.richTextBox_status.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox_status.Location = new System.Drawing.Point(142, 261);
             this.richTextBox_status.Name = "richTextBox_status";
-            this.richTextBox_status.Size = new System.Drawing.Size(402, 24);
+            this.richTextBox_status.Size = new System.Drawing.Size(366, 24);
             this.richTextBox_status.TabIndex = 52;
             this.richTextBox_status.Text = "";
             // 

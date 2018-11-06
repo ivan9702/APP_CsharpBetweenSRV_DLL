@@ -19,6 +19,8 @@ namespace Demo_CsharpBetweenSrvAndDll
                     try
                     {
                         pb.Image = (Image)bmp;
+                        pb.Width = bmp.Width;
+                        pb.Height = bmp.Height;
                     }
                     catch (Exception ex)
                     {
@@ -50,6 +52,7 @@ namespace Demo_CsharpBetweenSrvAndDll
                 });
                 return;
             }
+            tb.Text = str;
         }
 
         public static void AddLog(RichTextBox tb, string str)
@@ -72,6 +75,8 @@ namespace Demo_CsharpBetweenSrvAndDll
                 });
                 return;
             }
+            tb.AppendText("\r\n" + str);
+            tb.ScrollToCaret();
         }
 
         public static void AddColorText(RichTextBox tb, string str, Color color)
